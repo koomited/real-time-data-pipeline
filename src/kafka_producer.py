@@ -4,11 +4,11 @@ import pandas as pd
 from confluent_kafka import Producer
 
 conf = {
-    "bootstrap.servers":"pkc-921jm.us-east-2.aws.confluent.cloud:9092",
+    "bootstrap.servers":os.getenv("BOOTSTRAP_SERVERS"),
     "security.protocol": "SASL_SSL",
     "sasl.mechanisms": "PLAIN",
-    "sasl.username": "NYZSHUXMFC3HO2EC",
-    "sasl.password":"N2dvQTp+5tNzWWbsaeYfv0gewGQ/zUyI6oHGIesQar8HOWVZflnQHIsW0BQMSt1/",
+    "sasl.username": os.getenv("SASL.USERNAME"),
+    "sasl.password":os.getenv("SASL.PASSWORD"),
     "client.id": "json-serial-producer"
 }
 

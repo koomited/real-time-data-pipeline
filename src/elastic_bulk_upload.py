@@ -1,11 +1,11 @@
 from elasticsearch import Elasticsearch, helpers
-import json
+import json, os
 
 ## Connect to Elasticsearch cloud
 client = Elasticsearch(
-    "https://e718e1052e864dcd800993c7c50a3894.eu-central-1.aws.cloud.es.io:443",
+    os.getenv("ELASTIC.URI"),
     verify_certs = False,
-    basic_auth = ("elastic", "hMnAFFFZPflZRGlUYGzsn2gX")
+    basic_auth = ("elastic", os.getenv("ELASTIC.PASSWORD"))
 )
 
 # Open yelp data file

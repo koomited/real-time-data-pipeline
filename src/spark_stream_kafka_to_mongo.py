@@ -15,16 +15,16 @@ if not os.path.exists(checkpoint_dir):
 
 config = {
     "kafka":{
-    "bootstrap.servers":"pkc-921jm.us-east-2.aws.confluent.cloud:9092",
+    "bootstrap.servers":os.getenv("BOOTSTRAP_SERVERS"),
     "security.protocol": "SASL_SSL",
     "sasl.mechanisms": "PLAIN",
-    "sasl.username": "NYZSHUXMFC3HO2EC",
-    "sasl.password":"N2dvQTp+5tNzWWbsaeYfv0gewGQ/zUyI6oHGIesQar8HOWVZflnQHIsW0BQMSt1/",
+    "sasl.username": os.getenv("SASL.USERNAME"),
+    "sasl.password":os.getenv("SASL.PASSWORD"),
     "client.id": "json-serial-producer"
 },
 
     "mongodb": {
-        "uri":"mongodb+srv://spark:Spark123123@yelp-cluster.jxmxf.mongodb.net/?retryWrites=true&w=majority&appName=yelp-cluster",
+        "uri":os.getenv("MONGO.URI"),
         "database":"reviewsdb",
         "collection": "enriched_reviews_collection"
     }
